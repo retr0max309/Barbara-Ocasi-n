@@ -65,7 +65,7 @@ export function HeroImageClient() {
             transition={scaleTransition}
           >
             <video
-              src="/videoReveal.mp4"
+              src="/Barbara-Ocasi-n/videoReveal.mp4"
               className="absolute inset-0 w-full object-cover"
               style={{ height: "100%", display: "block" }}
               autoPlay

@@ -1,8 +1,8 @@
-
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { SITE, FAQS } from "@/data/content";
+import Link from "next/link";
 import { EASE_GUCCI, DUR_BASE } from "@/lib/motion";
 
 /* ─────────────────────────────────────────────────────────────────────
@@ -151,7 +151,7 @@ export default function Footer() {
         >
           Hagamos tu evento realidad.
         </h2>
-        <a
+        <Link
           href="/inversion"
           className="group inline-flex items-center gap-3 font-body uppercase tracking-[0.3em] transition-opacity duration-300 hover:opacity-60"
           style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.75)" }}
@@ -161,7 +161,7 @@ export default function Footer() {
             aria-hidden="true"
           >+</span>
           Cotiza tu evento
-        </a>
+        </Link>
       </div>
 
       {/* ── 2. GRID DE 3 COLUMNAS (desktop) / columna única (mobile) ── */}

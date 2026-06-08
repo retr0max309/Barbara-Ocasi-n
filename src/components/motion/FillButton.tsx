@@ -4,6 +4,7 @@
  *   • solid:  relleno permanente (siempre visible), con hover sutil.
  * Server Component — CSS puro, sin JS ni hooks.
  */
+import Link from "next/link";
 
 interface FillButtonProps {
   href: string;
@@ -63,6 +64,7 @@ export function FillButton({
   withArrow = false,
 }: FillButtonProps) {
   const ext = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
+  const Element = external ? "a" : Link;
 
   const content = (
     <span className="relative z-10 inline-flex items-center gap-2.5 whitespace-nowrap">
@@ -82,7 +84,7 @@ export function FillButton({
   /* ── Sólido: relleno permanente ── */
   if (solid) {
     return (
-      <a
+      <Element
         href={href}
         {...ext}
         className={[BASE, "transition-colors duration-500", SOLID_BG[variant], className]
@@ -91,14 +93,14 @@ export function FillButton({
         style={{ color: SOLID_TEXT[variant], transitionTimingFunction: EASE }}
       >
         {content}
-      </a>
+      </Element>
     );
   }
 
   /* ── Outline: el relleno sube en hover ── */
   const v = OUTLINE[variant];
   return (
-    <a
+    <Element
       href={href}
       {...ext}
       className={[BASE, "border transition-colors duration-700", v.line, className]
@@ -115,6 +117,6 @@ export function FillButton({
         aria-hidden="true"
       />
       {content}
-    </a>
+    </Element>
   );
 }

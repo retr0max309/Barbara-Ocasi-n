@@ -10,6 +10,8 @@
  *   "dark" → texto/flecha/línea en var(--color-ink)  → fondos claros
  *   "gold" → texto/flecha/línea en var(--color-gold) → fondos oscuros
  */
+import Link from "next/link";
+
 interface TextArrowButtonProps {
   href: string;
   children: React.ReactNode;
@@ -31,9 +33,10 @@ export function TextArrowButton({
   className = "",
 }: TextArrowButtonProps) {
   const ext = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
+  const Element = external ? "a" : Link;
 
   return (
-    <a
+    <Element
       href={href}
       {...ext}
       className={`tab-btn ${className}`}
@@ -58,6 +61,6 @@ export function TextArrowButton({
           transform="translate(30)"
         />
       </svg>
-    </a>
+    </Element>
   );
 }

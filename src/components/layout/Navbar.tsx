@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 import { NAV_LINKS, SITE } from "@/data/content";
 import { EASE_GUCCI, EASE_INOUT, DUR_BASE, DUR_SLOW } from "@/lib/motion";
@@ -81,20 +82,23 @@ export default function Navbar() {
         transition={reduce ? { duration: 0 } : { duration: 0.55, ease: EASE_GUCCI }}
       >
         {/* ── Izquierda: Wordmark ── */}
-        <motion.a
-          href="/"
-          className="font-display uppercase whitespace-nowrap select-none transition-opacity duration-300 hover:opacity-60"
-          style={{
-            fontSize: "clamp(0.85rem, 1.5vw, 1.1rem)",
-            letterSpacing: "0.28em",
-            color: "var(--color-cream)",
-          }}
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={tx(1)}
         >
-          Barbara Ocasión
-        </motion.a>
+          <Link
+            href="/"
+            className="font-display uppercase whitespace-nowrap select-none transition-opacity duration-300 hover:opacity-60"
+            style={{
+              fontSize: "clamp(0.85rem, 1.5vw, 1.1rem)",
+              letterSpacing: "0.28em",
+              color: "var(--color-cream)",
+            }}
+          >
+            Barbara Ocasión
+          </Link>
+        </motion.div>
 
         {/* ── Derecha: ☰ Menú — marginLeft:auto garantiza que quede a la derecha ── */}
         <motion.div
@@ -216,7 +220,7 @@ export default function Navbar() {
                 variants={listItem}
                 style={{ borderTop: "1px solid rgba(14, 13, 31, 0.1)" }}
               >
-                <a
+                <Link
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
                   className="group flex flex-col items-center py-6 transition-opacity duration-300 hover:opacity-60"
@@ -233,7 +237,7 @@ export default function Navbar() {
                   >
                     {link.desc}
                   </span>
-                </a>
+                </Link>
               </motion.li>
             ))}
           </ul>

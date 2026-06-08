@@ -3,9 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: "export",
   images: { unoptimized: true },
-  // Descomentar si GitHub Pages sirve desde un subpath (e.g. /barbara-ocasion-next)
-  // basePath: "/barbara-ocasion-next",
-  // assetPrefix: "/barbara-ocasion-next/",
+  basePath: "/Barbara-Ocasi-n",
+  assetPrefix: "/Barbara-Ocasi-n/",
   trailingSlash: true,
   turbopack: {
     root: __dirname,

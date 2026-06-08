@@ -103,7 +103,7 @@ export default function EditorialSection() {
       {/* ── Video full-width — se reproduce una sola vez ───────────── */}
       <FadeUp delay={0.2}>
         <video
-          src="/videoContenido3.mp4"
+          src="/Barbara-Ocasi-n/videoContenido3.mp4"
           autoPlay
           muted
           playsInline

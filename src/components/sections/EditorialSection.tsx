@@ -68,7 +68,7 @@ export default function EditorialSection() {
         >
           <FadeUp delay={0.3} className="w-full h-full relative">
             <Image
-              src="/logoBarbara.png"
+              src="/Barbara-Ocasi-n/logoBarbara.png"
               alt="Logo Barbara Ocasión"
               fill
               className="object-contain"
@@ -82,7 +82,7 @@ export default function EditorialSection() {
       <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: "2px" }}>
         {/* Imagen 1 */}
         <ImageReveal
-          src="/contenido1.jpg"
+          src="/Barbara-Ocasi-n/contenido1.jpg"
           alt="Salón Barbara Ocasión preparado para una celebración"
           delay={0.2}
           priority
@@ -92,7 +92,7 @@ export default function EditorialSection() {
 
         {/* Imagen 2 — misma proporción exacta */}
         <ImageReveal
-          src="/contenido2.jpg"
+          src="/Barbara-Ocasi-n/contenido2.jpg"
           alt="Decoración floral y ambiente del salón"
           delay={0.2}
           sizes="(max-width: 640px) 100vw, 50vw"

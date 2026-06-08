@@ -57,21 +57,21 @@ export const SERVICIOS_PRINCIPALES = [
     titulo: "Floristería",
     descripcion:
       "Arreglos florales diseñados a medida para cada tipo de evento. Desde centros de mesa hasta arcos nupciales, cada flor es elegida para complementar la atmósfera que imaginas.",
-    imagen: "/serviciosImages/floristeria.jpg",
+    imagen: "/Barbara-Ocasi-n/serviciosImages/floristeria.jpg",
   },
   {
     id: "cocteleria",
     titulo: "Coctelería",
     descripcion:
       "Bartenders expertos que sirven cócteles curados y seleccionados en nuestra barra equipada. Una experiencia para el paladar tan memorable como el evento.",
-    imagen: "/serviciosImages/cocteleria.jpg",
+    imagen: "/Barbara-Ocasi-n/serviciosImages/cocteleria.jpg",
   },
   {
     id: "organizacion",
     titulo: "Organización de Eventos",
     descripcion:
       "Un coordinador dedicado que gestiona cada detalle desde la planificación hasta el último minuto. Decoración, personal, sonido, escenario, todo bajo un solo equipo para que tú solo disfrutes.",
-    imagen: "/serviciosImages/organizador.jpg",
+    imagen: "/Barbara-Ocasi-n/serviciosImages/organizador.jpg",
   },
 ];
 
@@ -83,18 +83,18 @@ export const INCLUIDOS = [
 ];
 
 export const GALERIA = [
-  { id: 1,  categoria: "bodas",        alt: "Boda en Barbara Ocasión",         src: "/galeriaimages/img1.jpg",       size: "tall" as const },
-  { id: 2,  categoria: "bodas",        alt: "Ceremonia nupcial",               src: "/galeriaimages/img9.jpg",      size: "wide" as const },
-  { id: 3,  categoria: "decoracion",   alt: "Decoración floral del salón",     src: "/galeriaimages/img10.jpg",      size: "wide" as const },
-  { id: 4,  categoria: "quince",       alt: "15 años en Barbara Ocasión",      src: "/galeriaimages/img2.jpg",     size: "tall" as const },
-  { id: 5,  categoria: "infantil",     alt: "Fiesta infantil decorada",        src: "/galeriaimages/img3.jpg",   size: "tall" as const },
-  { id: 6,  categoria: "bodas",        alt: "Mesa de boda decorada",           src: "/galeriaimages/img4.jpg",       size: "tall" as const },
-  { id: 7,  categoria: "adultos",      alt: "Cena de cumpleaños adultos",      src: "/galeriaimages/img5.jpg",    size: "tall" as const },
-  { id: 8,  categoria: "aniversarios", alt: "Aniversario en el salón",         src: "/galeriaimages/img6.jpg",       size: "tall" as const },
-  { id: 9,  categoria: "decoracion",   alt: "Iluminación y ambientación",      src: "/galeriaimages/img11.jpg",      size: "wide" as const },
-  { id: 10, categoria: "quince",       alt: "Fiesta de 15 años",               src: "/galeriaimages/img7.jpg",     size: "tall" as const },
-  { id: 11, categoria: "infantil",     alt: "Fiesta infantil con decoración",  src: "/galeriaimages/img8.jpg",   size: "tall" as const },
-  { id: 12, categoria: "aniversarios", alt: "Celebración de aniversario",      src: "/galeriaimages/img12.jpg",       size: "tall" as const },
+  { id: 1,  categoria: "bodas",        alt: "Boda en Barbara Ocasión",         src: "/Barbara-Ocasi-n/galeriaimages/img1.jpg",       size: "tall" as const },
+  { id: 2,  categoria: "bodas",        alt: "Ceremonia nupcial",               src: "/Barbara-Ocasi-n/galeriaimages/img9.jpg",      size: "wide" as const },
+  { id: 3,  categoria: "decoracion",   alt: "Decoración floral del salón",     src: "/Barbara-Ocasi-n/galeriaimages/img10.jpg",      size: "wide" as const },
+  { id: 4,  categoria: "quince",       alt: "15 años en Barbara Ocasión",      src: "/Barbara-Ocasi-n/galeriaimages/img2.jpg",     size: "tall" as const },
+  { id: 5,  categoria: "infantil",     alt: "Fiesta infantil decorada",        src: "/Barbara-Ocasi-n/galeriaimages/img3.jpg",   size: "tall" as const },
+  { id: 6,  categoria: "bodas",        alt: "Mesa de boda decorada",           src: "/Barbara-Ocasi-n/galeriaimages/img4.jpg",       size: "tall" as const },
+  { id: 7,  categoria: "adultos",      alt: "Cena de cumpleaños adultos",      src: "/Barbara-Ocasi-n/galeriaimages/img5.jpg",    size: "tall" as const },
+  { id: 8,  categoria: "aniversarios", alt: "Aniversario en el salón",         src: "/Barbara-Ocasi-n/galeriaimages/img6.jpg",       size: "tall" as const },
+  { id: 9,  categoria: "decoracion",   alt: "Iluminación y ambientación",      src: "/Barbara-Ocasi-n/galeriaimages/img11.jpg",      size: "wide" as const },
+  { id: 10, categoria: "quince",       alt: "Fiesta de 15 años",               src: "/Barbara-Ocasi-n/galeriaimages/img7.jpg",     size: "tall" as const },
+  { id: 11, categoria: "infantil",     alt: "Fiesta infantil con decoración",  src: "/Barbara-Ocasi-n/galeriaimages/img8.jpg",   size: "tall" as const },
+  { id: 12, categoria: "aniversarios", alt: "Celebración de aniversario",      src: "/Barbara-Ocasi-n/galeriaimages/img12.jpg",       size: "tall" as const },
 ];
 
 export const GALERIA_FILTROS = [

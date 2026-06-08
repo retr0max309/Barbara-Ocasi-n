@@ -5,11 +5,11 @@ import { EVENTOS, SITE } from "@/data/content";
 
 /* Mapa evento.id → imagen local */
 const IMAGE_MAP: Record<string, string> = {
-  bodas: "/eventosImages/eventosBoda.jpg",
-  quince: "/eventosImages/eventos15años.jpg",
-  infantil: "/eventosImages/eventosInfantil.jpg",
-  adultos: "/eventosImages/eventosAdultos.jpg",
-  aniversarios: "/eventosImages/eventosAniversarios.jpg",
+  bodas: "/Barbara-Ocasi-n/eventosImages/eventosBoda.jpg",
+  quince: "/Barbara-Ocasi-n/eventosImages/eventos15años.jpg",
+  infantil: "/Barbara-Ocasi-n/eventosImages/eventosInfantil.jpg",
+  adultos: "/Barbara-Ocasi-n/eventosImages/eventosAdultos.jpg",
+  aniversarios: "/Barbara-Ocasi-n/eventosImages/eventosAniversarios.jpg",
 };
 
 export default function EventosSection() {

@@ -1,26 +1,209 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─────────────────────────────────────────
+   DESIGN TOKENS — Barbara Ocasión (GUCCI-level)
+   Dark luxury · Navy + Gold accent · Editorial serif
+   ───────────────────────────────────────── */
+@theme {
+  /* Superficies — oscurecidas hacia casi-negro para full-bleed GUCCI */
+  --color-ink:         #0E0D1F;
+  --color-bg:          #17162F;
+  --color-surface:     #1e1d3a;
+  --color-surface-2:   #252347;
+  --color-divider:     #302e5a;
+  --color-border:      oklch(from #c9a84c l c h / 0.18);
+
+  /* Texto */
+  --color-cream:       #f0ece2;
+  --color-muted:       #a09880;
+  --color-faint:       #5a5548;
+  --color-inverse:     #0a0a0f;
+
+  /* Dorado — SOLO como acento mínimo (líneas, hover, detalles) */
+  --color-gold:        #c9a84c;
+  --color-gold-soft:   #e2c470;
+  --color-gold-dim:    oklch(from #c9a84c l c h / 0.12);
+
+  /* Tipografía */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Jost', 'Helvetica Neue', sans-serif;
+
+  /* Escalas fluidas */
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-hero: clamp(3rem,     0.5rem  + 7vw,    8rem);
+
+  /* Easings GUCCI (lentos, pesados, motivados) */
+  --ease-gucci:   cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-inout:   cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-butter:  cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  /* Radios — sistema SHARP (0), muy GUCCI */
+  --radius-none: 0;
+  --radius-sm:   2px;
+  --radius-full: 9999px;
+
+  /* Sombras cálidas */
+  --shadow-gold: 0 0 24px oklch(from #c9a84c l c h / 0.2);
+
+  /* Anchos de contenido */
+  --content-narrow:  640px;
+  --content-default: 960px;
+  --content-wide:    1400px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─────────────────────────────────────────
+   BASE RESET
+   ───────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-padding-top: 80px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-ink);
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+@layer base {
+  img, video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+  line-height: 1.1;
+  font-family: var(--font-display);
+}
+
+p, li {
+  text-wrap: pretty;
+  max-width: 65ch;
+}
+
+@layer base {
+  button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font: inherit;
+    color: inherit;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+input, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+/* ─────────────────────────────────────────
+   UTILIDADES GLOBALES
+   ───────────────────────────────────────── */
+.container {
+  max-width: var(--content-wide);
+  margin-inline: auto;
+  padding-inline: clamp(1.5rem, 5vw, 4rem);
+}
+
+.container--narrow  { max-width: var(--content-narrow); }
+.container--default { max-width: var(--content-default); }
+
+/* Wrapper de imagen con parallax-safe overflow */
+.img-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+/* GPU compositing para secciones grandes */
+section {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Reduced motion global */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Galería — overlay en hover ── */
+*:hover > .galeria-overlay {
+  opacity: 1 !important;
+}
+
+/* ── TextArrowButton (Shop Now animado) ── */
+.tab-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.tab-btn .tab-text {
+  padding-bottom: 7px;
+  letter-spacing: 4px;
+  font-size: 14px;
+  padding-right: 15px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.tab-btn .tab-text:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.tab-btn:hover .tab-text:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.tab-btn .tab-arrow {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover .tab-arrow {
+  transform: translateX(0);
+}
+
+.tab-btn:active .tab-arrow {
+  transform: scale(0.9);
 }

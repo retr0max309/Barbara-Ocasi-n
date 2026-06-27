@@ -27,7 +27,8 @@ export function TextReveal({
   }, []);
 
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.4 });
+  // amount reducido a 0.2 → dispara antes, especialmente en pantallas pequeñas
+  const inView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
     <span ref={ref} className={`block ${className}`}>
@@ -51,6 +52,7 @@ export function TextReveal({
                     ease: EASE_GUCCI,
                   }
             }
+            style={{ willChange: "transform" }}
           >
             {line}
           </motion.span>

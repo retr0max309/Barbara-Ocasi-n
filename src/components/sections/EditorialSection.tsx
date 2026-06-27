@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { ImageReveal } from "@/components/motion/ImageReveal";
+
+const basePath = process.env.NODE_ENV === 'production' ? '/Barbara-Ocasi-n' : '';
 import { FadeUp } from "@/components/motion/FadeUp";
 
 /*
@@ -43,7 +45,7 @@ export default function EditorialSection() {
             <p
               className="font-body"
               style={{
-                fontSize: "clamp(1.3rem, 1.1vw, 1.05rem)",
+                fontSize: "clamp(0.95rem, 1.1vw, 1.05rem)",
                 lineHeight: 1.7,
                 color: "var(--color-faint)",
                 maxWidth: "48ch",
@@ -68,7 +70,7 @@ export default function EditorialSection() {
         >
           <FadeUp delay={0.3} className="w-full h-full relative">
             <Image
-              src="/Barbara-Ocasi-n/logoBarbara.png"
+              src={`${basePath}/logoBarbara.png`}
               alt="Logo Barbara Ocasión"
               fill
               className="object-contain"
@@ -82,7 +84,7 @@ export default function EditorialSection() {
       <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: "2px" }}>
         {/* Imagen 1 */}
         <ImageReveal
-          src="/Barbara-Ocasi-n/contenido1.jpg"
+          src={`${basePath}/contenido1.jpg`}
           alt="Salón Barbara Ocasión preparado para una celebración"
           delay={0.2}
           priority
@@ -92,7 +94,7 @@ export default function EditorialSection() {
 
         {/* Imagen 2 — misma proporción exacta */}
         <ImageReveal
-          src="/Barbara-Ocasi-n/contenido2.jpg"
+          src={`${basePath}/contenido2.jpg`}
           alt="Decoración floral y ambiente del salón"
           delay={0.2}
           sizes="(max-width: 640px) 100vw, 50vw"
@@ -103,7 +105,7 @@ export default function EditorialSection() {
       {/* ── Video full-width — se reproduce una sola vez ───────────── */}
       <FadeUp delay={0.2}>
         <video
-          src="/Barbara-Ocasi-n/videoContenido3.mp4"
+          src={`${basePath}/videoContenido3.mp4`}
           autoPlay
           muted
           playsInline

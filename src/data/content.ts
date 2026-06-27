@@ -1,13 +1,18 @@
 /* Datos y copy de Barbara Ocasión — fuente de verdad única */
 
+const basePath = process.env.NODE_ENV === 'production' ? '/Barbara-Ocasi-n' : '';
+
 export const SITE = {
   nombre: "Barbara Ocasión",
   descripcion: "El escenario perfecto para tus momentos inolvidables.",
   whatsapp: "https://wa.me/59163026011",
   whatsappMsg: "https://wa.me/59163026011?text=Hola%2C%20me%20gustar%C3%ADa%20cotizar%20un%20evento%20en%20Barbara%20Ocasi%C3%B3n.",
-  telefono:  "63026011",
+  telefono:  "71162852",
   telefono2: "77131831",
+  whatsappContacto: "https://wa.me/59171162852?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20en%20Barbara%20Ocasi%C3%B3n.",
   direccion: "Padre Sanauja Nº2, Sucre, Bolivia",
+  mapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3798.1234567890!2d-65.2594!3d-19.0477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e9c7b6a5d3a1%3A0x0!2sBarbara%20Ocasi%C3%B3n!5e0!3m2!1ses!2sbo!4v1700000000000!5m2!1ses!2sbo",
+  mapsUrl: "https://maps.app.goo.gl/da5SsehxBaWQxiuP6",
   capacidad: 200,
   instagram: "https://www.instagram.com/barbaraocasion.bo?igsh=d2hvNWVrcmxyenZw",
   facebook:  "https://www.facebook.com/share/1BKsV9eVPU/",
@@ -57,21 +62,21 @@ export const SERVICIOS_PRINCIPALES = [
     titulo: "Floristería",
     descripcion:
       "Arreglos florales diseñados a medida para cada tipo de evento. Desde centros de mesa hasta arcos nupciales, cada flor es elegida para complementar la atmósfera que imaginas.",
-    imagen: "/Barbara-Ocasi-n/serviciosImages/floristeria.jpg",
+    imagen: `${basePath}/serviciosImages/floristeria.jpg`,
   },
   {
     id: "cocteleria",
     titulo: "Coctelería",
     descripcion:
       "Bartenders expertos que sirven cócteles curados y seleccionados en nuestra barra equipada. Una experiencia para el paladar tan memorable como el evento.",
-    imagen: "/Barbara-Ocasi-n/serviciosImages/cocteleria.jpg",
+    imagen: `${basePath}/serviciosImages/cocteleria.jpg`,
   },
   {
     id: "organizacion",
     titulo: "Organización de Eventos",
     descripcion:
       "Un coordinador dedicado que gestiona cada detalle desde la planificación hasta el último minuto. Decoración, personal, sonido, escenario, todo bajo un solo equipo para que tú solo disfrutes.",
-    imagen: "/Barbara-Ocasi-n/serviciosImages/organizador.jpg",
+    imagen: `${basePath}/serviciosImages/organizador.jpg`,
   },
 ];
 
@@ -83,18 +88,18 @@ export const INCLUIDOS = [
 ];
 
 export const GALERIA = [
-  { id: 1,  categoria: "bodas",        alt: "Boda en Barbara Ocasión",         src: "/Barbara-Ocasi-n/galeriaimages/img1.jpg",       size: "tall" as const },
-  { id: 2,  categoria: "bodas",        alt: "Ceremonia nupcial",               src: "/Barbara-Ocasi-n/galeriaimages/img9.jpg",      size: "wide" as const },
-  { id: 3,  categoria: "decoracion",   alt: "Decoración floral del salón",     src: "/Barbara-Ocasi-n/galeriaimages/img10.jpg",      size: "wide" as const },
-  { id: 4,  categoria: "quince",       alt: "15 años en Barbara Ocasión",      src: "/Barbara-Ocasi-n/galeriaimages/img2.jpg",     size: "tall" as const },
-  { id: 5,  categoria: "infantil",     alt: "Fiesta infantil decorada",        src: "/Barbara-Ocasi-n/galeriaimages/img3.jpg",   size: "tall" as const },
-  { id: 6,  categoria: "bodas",        alt: "Mesa de boda decorada",           src: "/Barbara-Ocasi-n/galeriaimages/img4.jpg",       size: "tall" as const },
-  { id: 7,  categoria: "adultos",      alt: "Cena de cumpleaños adultos",      src: "/Barbara-Ocasi-n/galeriaimages/img5.jpg",    size: "tall" as const },
-  { id: 8,  categoria: "aniversarios", alt: "Aniversario en el salón",         src: "/Barbara-Ocasi-n/galeriaimages/img6.jpg",       size: "tall" as const },
-  { id: 9,  categoria: "decoracion",   alt: "Iluminación y ambientación",      src: "/Barbara-Ocasi-n/galeriaimages/img11.jpg",      size: "wide" as const },
-  { id: 10, categoria: "quince",       alt: "Fiesta de 15 años",               src: "/Barbara-Ocasi-n/galeriaimages/img7.jpg",     size: "tall" as const },
-  { id: 11, categoria: "infantil",     alt: "Fiesta infantil con decoración",  src: "/Barbara-Ocasi-n/galeriaimages/img8.jpg",   size: "tall" as const },
-  { id: 12, categoria: "aniversarios", alt: "Celebración de aniversario",      src: "/Barbara-Ocasi-n/galeriaimages/img12.jpg",       size: "tall" as const },
+  { id: 1,  categoria: "bodas",        alt: "Boda en Barbara Ocasión",         src: `${basePath}/galeriaimages/img1.jpg`,       size: "tall" as const },
+  { id: 2,  categoria: "bodas",        alt: "Ceremonia nupcial",               src: `${basePath}/galeriaimages/img9.jpg`,      size: "wide" as const },
+  { id: 3,  categoria: "decoracion",   alt: "Decoración floral del salón",     src: `${basePath}/galeriaimages/img10.jpg`,      size: "wide" as const },
+  { id: 4,  categoria: "quince",       alt: "15 años en Barbara Ocasión",      src: `${basePath}/galeriaimages/img2.jpg`,     size: "tall" as const },
+  { id: 5,  categoria: "infantil",     alt: "Fiesta infantil decorada",        src: `${basePath}/galeriaimages/img3.jpg`,   size: "tall" as const },
+  { id: 6,  categoria: "bodas",        alt: "Mesa de boda decorada",           src: `${basePath}/galeriaimages/img4.jpg`,       size: "tall" as const },
+  { id: 7,  categoria: "adultos",      alt: "Cena de cumpleaños adultos",      src: `${basePath}/galeriaimages/img5.jpg`,    size: "tall" as const },
+  { id: 8,  categoria: "aniversarios", alt: "Aniversario en el salón",         src: `${basePath}/galeriaimages/img6.jpg`,       size: "tall" as const },
+  { id: 9,  categoria: "decoracion",   alt: "Iluminación y ambientación",      src: `${basePath}/galeriaimages/img11.jpg`,      size: "wide" as const },
+  { id: 10, categoria: "quince",       alt: "Fiesta de 15 años",               src: `${basePath}/galeriaimages/img7.jpg`,     size: "tall" as const },
+  { id: 11, categoria: "infantil",     alt: "Fiesta infantil con decoración",  src: `${basePath}/galeriaimages/img8.jpg`,   size: "tall" as const },
+  { id: 12, categoria: "aniversarios", alt: "Celebración de aniversario",      src: `${basePath}/galeriaimages/img12.jpg`,       size: "tall" as const },
 ];
 
 export const GALERIA_FILTROS = [
@@ -242,6 +247,6 @@ export const PAQUETES = [
 export const NAV_LINKS = [
   { href: "/eventos",   label: "Eventos",   desc: "Bodas · 15 años · Corporativos" },
   { href: "/servicios", label: "Servicios", desc: "Floristería · Coctelería · Organización" },
-  { href: "/galeria",   label: "Galería",   desc: "Celebraciones reales en el salón" },
   { href: "/inversion", label: "Inversión", desc: "Paquetes y colecciones" },
+  { href: "/contacto",  label: "Contacto",  desc: "Visítanos · Agenda tu cita" },
 ];

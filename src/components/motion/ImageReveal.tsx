@@ -6,10 +6,8 @@ import { EASE_GUCCI } from "@/lib/motion";
 
 /*
  * ImageReveal — Ken Burns Effect (zoom-out al entrar al viewport).
- * La imagen empieza ligeramente ampliada (scale 1.15) y se asienta
+ * La imagen empieza ligeramente ampliada (scale 1.12) y se asienta
  * suavemente a su tamaño natural (scale 1.0) en ~1.8 s.
- * Sin chequeo de prefers-reduced-motion para garantizar que el efecto
- * sea siempre visible.
  */
 
 interface ImageRevealProps {
@@ -28,12 +26,12 @@ export function ImageReveal({
   className = "",
   style,
   priority = false,
-  delay = 3,
+  delay = 0,
   sizes = "(max-width: 768px) 100vw, 50vw",
 }: ImageRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   // once:true → la animación se dispara una sola vez al entrar al viewport
-  const inView = useInView(ref, { once: true, amount: 0.1 });
+  const inView = useInView(ref, { once: true, amount: 0.08 });
 
   return (
     /* Contenedor externo: overflow:hidden contiene el zoom sin desbordarse */
@@ -45,13 +43,14 @@ export function ImageReveal({
       {/* La imagen empieza ampliada y hace zoom-out cuando entra en pantalla */}
       <motion.div
         className="absolute inset-0"
-        initial={{ scale: 1.15 }}
-        animate={inView ? { scale: 1 } : { scale: 1.15 }}
+        initial={{ scale: 1.12 }}
+        animate={inView ? { scale: 1 } : { scale: 1.12 }}
         transition={{
-          duration: 2,
-          delay : 0.6,
+          duration: 1.8,
+          delay,
           ease: EASE_GUCCI,
         }}
+        style={{ willChange: "transform" }}
       >
         <Image
           src={src}

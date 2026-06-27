@@ -1,6 +1,8 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView, useScroll, useTransform } from "motion/react";
+
+const basePath = process.env.NODE_ENV === 'production' ? '/Barbara-Ocasi-n' : '';
 import { EASE_GUCCI } from "@/lib/motion";
 
 export function HeroImageClient() {
@@ -65,7 +67,7 @@ export function HeroImageClient() {
             transition={scaleTransition}
           >
             <video
-              src="/Barbara-Ocasi-n/videoReveal.mp4"
+              src={`${basePath}/videoReveal.mp4`}
               className="absolute inset-0 w-full object-cover"
               style={{ height: "100%", display: "block" }}
               autoPlay

@@ -426,57 +426,6 @@ export default function InversionSection() {
         </div>
       </div>
 
-      {/* ── CTA final — fondo oscuro ─────────────────────────── */}
-      <div
-        style={{
-          backgroundColor: "var(--color-ink)",
-          textAlign: "center",
-          padding: "clamp(5rem, 10vw, 8rem) 1.5rem",
-        }}
-      >
-        <p
-          className="font-body uppercase tracking-[0.32em]"
-          style={{
-            fontSize: "0.7rem",
-            color: "var(--color-gold)",
-            paddingLeft: "0.32em",
-            marginBottom: "clamp(1.25rem, 2.5vw, 2rem)",
-            marginInline: "auto",
-          }}
-        >
-          Agenda tu Visita
-        </p>
-        <h2
-          className="font-display"
-          style={{
-            fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
-            lineHeight: 1,
-            color: "var(--color-cream)",
-            marginBottom: "clamp(0.75rem, 1.5vw, 1.25rem)",
-          }}
-        >
-          Hagamos tu evento<br />una realidad.
-        </h2>
-        <p
-          className="font-body"
-          style={{
-            fontSize: "clamp(0.85rem, 1vw, 1rem)",
-            color: "rgba(240,236,226,0.5)",
-            marginBottom: "clamp(2rem, 4vw, 3.5rem)",
-            marginInline: "auto",
-          }}
-        >
-          Te respondemos en menos de 24 horas.
-        </p>
-        <TextArrowButton
-          href={SITE.whatsappMsg}
-          external
-          variant="gold"
-        >
-          Cotiza tu evento
-        </TextArrowButton>
-      </div>
-
     </section>
   );
 }

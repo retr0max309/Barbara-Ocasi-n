@@ -1,21 +1,24 @@
-import { ImageReveal } from "@/components/motion/ImageReveal";
-import { TextReveal } from "@/components/motion/TextReveal";
+"use client";
+import Image from "next/image";
 import { FadeUp } from "@/components/motion/FadeUp";
-import { EVENTOS, SITE } from "@/data/content";
+import { TextReveal } from "@/components/motion/TextReveal";
+import { TextArrowButton } from "@/components/motion/TextArrowButton";
+import { SITE } from "@/data/content";
 
-/* Mapa evento.id → imagen local */
-const IMAGE_MAP: Record<string, string> = {
-  bodas: "/Barbara-Ocasi-n/eventosImages/eventosBoda.jpg",
-  quince: "/Barbara-Ocasi-n/eventosImages/eventos15años.jpg",
-  infantil: "/Barbara-Ocasi-n/eventosImages/eventosInfantil.jpg",
-  adultos: "/Barbara-Ocasi-n/eventosImages/eventosAdultos.jpg",
-  aniversarios: "/Barbara-Ocasi-n/eventosImages/eventosAniversarios.jpg",
-};
+const basePath =
+  process.env.NODE_ENV === "production" ? "/Barbara-Ocasi-n" : "";
+
+/* ── Fotos del salón — todas las imágenes disponibles ── */
+const FOTOS = [
+  { src: `${basePath}/eventosImages/eventosBoda.jpg`,        alt: "Boda en Barbara Ocasión",             size: "tall"   },
+  { src: `${basePath}/eventosImages/eventos15años.jpg`,      alt: "15 Años en Barbara Ocasión",          size: "tall"   },
+  { src: `${basePath}/eventosImages/eventosAdultos.jpg`,     alt: "Cumpleaños adultos en el salón",      size: "normal" },
+  { src: `${basePath}/eventosImages/eventosInfantil.jpg`,    alt: "Fiesta infantil Barbara Ocasión",     size: "normal" },
+  { src: `${basePath}/eventosImages/eventosAniversarios.jpg`,alt: "Aniversario en Barbara Ocasión",      size: "normal" },
+  { src: `${basePath}/eventosImages/imgEventos.jpg`,         alt: "Evento especial en Barbara Ocasión",  size: "wide"   },
+] as const;
 
 export default function EventosSection() {
-  const featured = EVENTOS.find((e) => e.destacado) ?? EVENTOS[0];
-  const rest = EVENTOS.filter((e) => e.id !== featured.id);
-
   return (
     <section id="eventos" style={{ backgroundColor: "#ffffff" }}>
 
@@ -29,7 +32,6 @@ export default function EventosSection() {
         }}
       >
         <FadeUp>
-          {/* Etiqueta con líneas doradas */}
           <div
             className="flex items-center justify-center gap-4"
             style={{ marginBottom: "clamp(1.5rem, 3vw, 2.5rem)" }}
@@ -47,10 +49,10 @@ export default function EventosSection() {
             <span
               className="font-body uppercase tracking-[0.36em]"
               style={{
-                fontSize: "0.8rem",         /* más grande y legible */
-                fontWeight: 600,            /* más grueso */
+                fontSize: "0.8rem",
+                fontWeight: 600,
                 color: "var(--color-gold)",
-                paddingLeft: "0.36em",      /* balancea el tracking extra de la derecha */
+                paddingLeft: "0.36em",
               }}
             >
               Nuestros Eventos
@@ -68,7 +70,6 @@ export default function EventosSection() {
           </div>
         </FadeUp>
 
-        {/* Titular */}
         <h2
           className="font-display"
           style={{
@@ -84,7 +85,6 @@ export default function EventosSection() {
           />
         </h2>
 
-        {/* Descriptor — centrado */}
         <FadeUp delay={0.2}>
           <p
             className="font-body mx-auto text-center"
@@ -93,178 +93,94 @@ export default function EventosSection() {
               lineHeight: 1.8,
               color: "var(--color-faint)",
               maxWidth: "54ch",
-              textWrap: "balance", /* Evita problemas de justificación asimétrica */
             }}
           >
-            Desde bodas íntimas hasta grandes celebraciones, adaptamos cada espacio y detalle para que tu evento sea exactamente como lo imaginas.
+            Desde bodas íntimas hasta grandes celebraciones, adaptamos cada
+            espacio y detalle para que tu evento sea exactamente como lo imaginas.
           </p>
         </FadeUp>
       </div>
 
-      {/* ── Evento destacado — Bodas ─────────────────────────── */}
-      <div
-        className="container"
-        style={{ paddingBottom: "clamp(5rem, 10vw, 8rem)" }}
-      >
-        <div
-          className="grid grid-cols-1 md:grid-cols-[3fr_2fr] items-center"
-          style={{ gap: "clamp(3rem, 6vw, 7rem)" }}
-        >
-          {/* Imagen real */}
-          <ImageReveal
-            src={IMAGE_MAP[featured.id] ?? featured.imagen}
-            alt={`Evento ${featured.nombre} — Barbara Ocasión`}
-            priority
-            sizes="(max-width: 768px) 100vw, 60vw"
-            style={{ aspectRatio: "3 / 4", width: "100%" }}
-          />
-
-          {/* Texto */}
-          <FadeUp delay={0.1}>
-            <div>
-              <span
-                className="font-body block"
-                style={{
-                  fontSize: "0.95rem",
-                  fontWeight: 600,
-                  letterSpacing: "0.32em",
-                  color: "var(--color-gold)",
-                  marginBottom: "1.5rem",
-                }}
-              >
-                01
-              </span>
-
-              <h3
-                className="font-display"
-                style={{
-                  fontSize: "clamp(3.5rem, 7vw, 6rem)",
-                  lineHeight: 0.94,
-                  color: "var(--color-ink)",
-                  marginBottom: "clamp(1.5rem, 3vw, 2.5rem)",
-                }}
-              >
-                <TextReveal lines={[featured.nombre]} />
-              </h3>
-
-              <p
-                className="font-body"
-                style={{
-                  fontSize: "clamp(1.05rem, 1.8vw, 1.15rem)",
-                  lineHeight: 1.85,
-                  color: "var(--color-faint)",
-                  maxWidth: "40ch",
-                  marginBottom: "clamp(2rem, 4vw, 3.5rem)",
-                }}
-              >
-                {featured.descripcion}. Cada detalle cuidado, desde la decoración
-                floral hasta la iluminación, para que ese día sea exactamente
-                como siempre lo imaginaste.
-              </p>
-            </div>
-          </FadeUp>
-        </div>
-      </div>
-
-      {/* ── Divisor ──────────────────────────────────────────── */}
-      <div className="container">
-        <div
-          style={{
-            height: "1px",
-            backgroundColor: "rgba(14,13,31,0.08)",
-            marginBottom: "clamp(4.5rem, 9vw, 8rem)",
-          }}
-        />
-      </div>
-
-      {/* ── Resto de eventos — grid 2 × 2 ───────────────────── */}
+      {/* ── Galería de fotos editorial ───────────────────────── */}
       <div
         className="container"
         style={{ paddingBottom: "clamp(6rem, 12vw, 10rem)" }}
       >
+        {/* Fila 1: imagen grande a la izquierda + 2 pequeñas a la derecha */}
         <div
-          className="grid grid-cols-1 sm:grid-cols-2"
-          style={{
-            columnGap: "clamp(1.5rem, 3vw, 3rem)",
-            rowGap: "clamp(3rem, 6vw, 5rem)",
-          }}
+          className="grid grid-cols-1 md:grid-cols-[3fr_2fr]"
+          style={{ gap: "clamp(0.5rem, 1vw, 1rem)", marginBottom: "clamp(0.5rem, 1vw, 1rem)" }}
         >
-          {rest.map((evento, i) => (
-            <FadeUp key={evento.id} delay={i * 0.08}>
-              <article>
-                {/* Imagen real con Ken Burns */}
-                <ImageReveal
-                  src={IMAGE_MAP[evento.id] ?? evento.imagen}
-                  alt={`Evento ${evento.nombre} — Barbara Ocasión`}
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                  style={{
-                    aspectRatio: "4 / 5",
-                    width: "100%",
-                    marginBottom: "clamp(1rem, 2vw, 1.5rem)",
-                  }}
-                  delay={i * 0.08}
+          {/* Grande */}
+          <FadeUp>
+            <div style={{ position: "relative", aspectRatio: "3/4", overflow: "hidden" }}>
+              <Image
+                src={FOTOS[0].src}
+                alt={FOTOS[0].alt}
+                fill
+                className="object-cover hover-scale"
+                sizes="(max-width: 768px) 100vw, 60vw"
+                style={{ transition: "transform 0.8s cubic-bezier(0.16,1,0.3,1)" }}
+              />
+            </div>
+          </FadeUp>
+          {/* Columna derecha: 2 imágenes apiladas */}
+          <div
+            className="grid grid-cols-1"
+            style={{ gap: "clamp(0.5rem, 1vw, 1rem)" }}
+          >
+            <FadeUp delay={0.07}>
+              <div style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden" }}>
+                <Image
+                  src={FOTOS[1].src}
+                  alt={FOTOS[1].alt}
+                  fill
+                  className="object-cover hover-scale"
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  style={{ transition: "transform 0.8s cubic-bezier(0.16,1,0.3,1)" }}
                 />
-
-                {/* Índice + línea */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.9rem",
-                    marginBottom: "0.55rem",
-                  }}
-                >
-                  <span
-                    className="font-body"
-                    style={{
-                      fontSize: "0.85rem",
-                      fontWeight: 600,
-                      letterSpacing: "0.3em",
-                      color: "var(--color-gold)",
-                      flexShrink: 0,
-                    }}
-                  >
-                    0{i + 2}
-                  </span>
-                  <span
-                    style={{
-                      flex: 1,
-                      height: "1px",
-                      backgroundColor: "rgba(14,13,31,0.1)",
-                    }}
-                    aria-hidden="true"
-                  />
-                </div>
-
-                {/* Nombre del evento */}
-                <h3
-                  className="font-display"
-                  style={{
-                    fontSize: "clamp(2rem, 3.5vw, 2.8rem)",
-                    lineHeight: 1,
-                    color: "var(--color-ink)",
-                    marginBottom: "0.6rem",
-                  }}
-                >
-                  {evento.nombre}
-                </h3>
-
-                {/* Descripción */}
-                <p
-                  className="font-body"
-                  style={{
-                    fontSize: "clamp(0.95rem, 1.5vw, 1.05rem)",
-                    lineHeight: 1.8,
-                    color: "var(--color-faint)",
-                  }}
-                >
-                  {evento.descripcion}
-                </p>
-              </article>
+              </div>
             </FadeUp>
-          ))}
+            <FadeUp delay={0.14}>
+              <div style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden" }}>
+                <Image
+                  src={FOTOS[2].src}
+                  alt={FOTOS[2].alt}
+                  fill
+                  className="object-cover hover-scale"
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  style={{ transition: "transform 0.8s cubic-bezier(0.16,1,0.3,1)" }}
+                />
+              </div>
+            </FadeUp>
+          </div>
         </div>
+
+        {/* Fila 2: 3 columnas iguales */}
+        <FadeUp delay={0.1}>
+          <div
+            className="grid grid-cols-1 sm:grid-cols-3"
+            style={{ gap: "clamp(0.5rem, 1vw, 1rem)" }}
+          >
+            {FOTOS.slice(3).map((foto, i) => (
+              <div
+                key={foto.src}
+                style={{ position: "relative", aspectRatio: "4/5", overflow: "hidden" }}
+              >
+                <Image
+                  src={foto.src}
+                  alt={foto.alt}
+                  fill
+                  className="object-cover hover-scale"
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  style={{ transition: "transform 0.8s cubic-bezier(0.16,1,0.3,1)" }}
+                />
+              </div>
+            ))}
+          </div>
+        </FadeUp>
       </div>
+
     </section>
   );
 }

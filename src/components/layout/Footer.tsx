@@ -151,17 +151,27 @@ export default function Footer() {
         >
           Hagamos tu evento realidad.
         </h2>
-        <Link
-          href="/inversion"
-          className="group inline-flex items-center gap-3 font-body uppercase tracking-[0.3em] transition-opacity duration-300 hover:opacity-60"
-          style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.75)" }}
+        <a
+          href={SITE.whatsappMsg}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-body uppercase"
+          style={{
+            display: "inline-block",
+            backgroundColor: "#ffffff",
+            color: "#0E0D1F",
+            padding: "1rem 2.5rem",
+            fontSize: "0.72rem",
+            letterSpacing: "0.28em",
+            fontWeight: 600,
+            transition: "background-color 0.4s ease, color 0.4s ease",
+            cursor: "pointer",
+          }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "var(--color-cream)"; }}
+          onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#ffffff"; }}
         >
-          <span
-            style={{ color: "var(--color-gold)" }}
-            aria-hidden="true"
-          >+</span>
-          Cotiza tu evento
-        </Link>
+          Cotizar mi evento
+        </a>
       </div>
 
       {/* ── 2. GRID DE 3 COLUMNAS (desktop) / columna única (mobile) ── */}
@@ -182,11 +192,8 @@ export default function Footer() {
         <div>
           <SectionLabel>Contacto</SectionLabel>
           <div style={{ display: "flex", flexDirection: "column", gap: "0.1rem" }}>
-            <FooterLink href={`tel:${SITE.telefono}`}>
-              {SITE.telefono}
-            </FooterLink>
-            <FooterLink href={`tel:${SITE.telefono2}`}>
-              {SITE.telefono2}
+            <FooterLink href={`tel:63026011`}>
+              63026011
             </FooterLink>
             <FooterLink href={SITE.instagram} external>
               Instagram

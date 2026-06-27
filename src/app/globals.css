@@ -207,3 +207,11 @@ section {
 .tab-btn:active .tab-arrow {
   transform: scale(0.9);
 }
+
+/* ── Hover scale para galería de eventos ── */
+.hover-scale {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-scale:hover {
+  transform: scale(1.04);
+}

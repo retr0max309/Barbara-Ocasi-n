@@ -5,10 +5,11 @@ import InversionSection from "@/components/sections/InversionSection";
 import { TextReveal } from "@/components/motion/TextReveal";
 
 export const metadata: Metadata = {
-  title: "Inversión — Barbara Ocasión | Paquetes de Eventos en Sucre, Bolivia",
+  title: "Paquetes — Barbara Ocasión | Paquetes de Eventos en Sucre, Bolivia",
   description:
     "Descubre nuestros tres paquetes de eventos: Esencial, Lujo y Barbara Ocasión. Encuentra la colección perfecta para tu celebración en Sucre, Bolivia.",
 };
+
 
 export default function InversionPage() {
   return (

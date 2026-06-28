@@ -247,6 +247,7 @@ export const PAQUETES = [
 export const NAV_LINKS = [
   { href: "/eventos",   label: "Eventos",   desc: "Bodas · 15 años · Corporativos" },
   { href: "/servicios", label: "Servicios", desc: "Floristería · Coctelería · Organización" },
-  { href: "/inversion", label: "Inversión", desc: "Paquetes y colecciones" },
+  { href: "/inversion", label: "Paquetes",  desc: "Paquetes y colecciones" },
   { href: "/contacto",  label: "Contacto",  desc: "Visítanos · Agenda tu cita" },
 ];
+

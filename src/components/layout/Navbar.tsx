@@ -1,10 +1,13 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
-import { NAV_LINKS, SITE } from "@/data/content";
+import { NAV_LINKS } from "@/data/content";
 import { EASE_GUCCI, EASE_INOUT, DUR_BASE, DUR_SLOW } from "@/lib/motion";
-import { TextArrowButton } from "@/components/motion/TextArrowButton";
+
+const basePath =
+  process.env.NODE_ENV === "production" ? "/Barbara-Ocasi-n" : "";
 
 /* ── Variantes del panel ─────────────────────────────────────────── */
 const listContainer = {
@@ -65,7 +68,7 @@ export default function Navbar() {
     <>
       {/* ─────────────────────────────────────────────────────────────
           BARRA PRINCIPAL
-          Layout: [BARBARA OCASIÓN izquierda]  [☰ Menú derecha]
+          Layout: [Logo izquierda]  [☰ Menú derecha]
           ───────────────────────────────────────────────────────────── */}
       <motion.header
         role="banner"
@@ -81,7 +84,7 @@ export default function Navbar() {
         animate={{ y: navVisible ? 0 : -80, opacity: 1 }}
         transition={reduce ? { duration: 0 } : { duration: 0.55, ease: EASE_GUCCI }}
       >
-        {/* ── Izquierda: Wordmark ── */}
+        {/* ── Izquierda: Logo imagen ── */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -89,18 +92,21 @@ export default function Navbar() {
         >
           <Link
             href="/"
-            className="font-display uppercase whitespace-nowrap select-none transition-opacity duration-300 hover:opacity-60"
-            style={{
-              fontSize: "clamp(0.85rem, 1.5vw, 1.1rem)",
-              letterSpacing: "0.28em",
-              color: "var(--color-cream)",
-            }}
+            className="block transition-opacity duration-300 hover:opacity-60"
+            aria-label="Barbara Ocasión — Inicio"
           >
-            Barbara Ocasión
+            <Image
+              src={`${basePath}/logoEsquina.png`}
+              alt="Barbara Ocasión"
+              width={200}
+              height={60}
+              priority
+              style={{ height: "clamp(56px, 5.5vw, 80px)", width: "auto", display: "block" }}
+            />
           </Link>
         </motion.div>
 
-        {/* ── Derecha: ☰ Menú — marginLeft:auto garantiza que quede a la derecha ── */}
+        {/* ── Derecha: ☰ Menú ── */}
         <motion.div
           style={{ marginLeft: "auto" }}
           initial={{ opacity: 0, y: -10 }}
@@ -128,11 +134,9 @@ export default function Navbar() {
 
       {/* ─────────────────────────────────────────────────────────────
           PANEL LATERAL DERECHO (estilo Gucci)
-          Siempre en el DOM — animate controla x y opacidad.
-          initial={false} evita animación en el primer render.
           ───────────────────────────────────────────────────────────── */}
 
-      {/* Backdrop — se desvanece al abrir/cerrar */}
+      {/* Backdrop */}
       <motion.div
         className="fixed inset-0 z-[55]"
         style={{
@@ -147,9 +151,7 @@ export default function Navbar() {
         aria-hidden="true"
       />
 
-      {/* Panel deslizante — panel blanco minimalista. x: 100% (oculto) → 0% (visible).
-          La animación NO se anula con reduced-motion: el deslizamiento es la
-          interacción principal del menú y el usuario quiere verlo siempre. */}
+      {/* Panel deslizante */}
       <motion.div
         id="menu-panel"
         role="dialog"
@@ -166,7 +168,7 @@ export default function Navbar() {
         animate={{ x: menuOpen ? "0%" : "100%" }}
         transition={{ duration: 0.6, ease: EASE_INOUT }}
       >
-        {/* ── Cabecera: marca centrada + cerrar (arriba a la derecha) ── */}
+        {/* ── Cabecera: logo centrado + cerrar (arriba a la derecha) ── */}
         <div
           className="relative shrink-0 flex items-center justify-center px-8 md:px-11"
           style={{ height: "84px" }}
@@ -223,19 +225,13 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="group flex flex-col items-center py-6 transition-opacity duration-300 hover:opacity-60"
+                  className="group flex items-center justify-center py-7 transition-opacity duration-300 hover:opacity-60"
                 >
                   <span
                     className="font-display block leading-[1.04]"
                     style={{ color: "var(--color-ink)", fontSize: "clamp(1.9rem, 5.5vw, 2.8rem)" }}
                   >
                     {link.label}
-                  </span>
-                  <span
-                    className="font-body block mt-2 uppercase tracking-[0.16em]"
-                    style={{ color: "var(--color-ink)", fontSize: "0.7rem" }}
-                  >
-                    {link.desc}
                   </span>
                 </Link>
               </motion.li>

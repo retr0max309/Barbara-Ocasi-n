@@ -60,21 +60,29 @@ export function HeroImageClient() {
         >
           {/* Capa 2: zoom-out suave mientras la cortina sube */}
           <motion.div
-            className="absolute inset-0"
+            className="absolute inset-0 bg-[#0e0d1f]"
             variants={scale}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
             transition={scaleTransition}
           >
-            <video
-              src={`${basePath}/videoReveal.mp4`}
-              className="absolute inset-0 w-full object-cover"
-              style={{ height: "100%", display: "block" }}
-              autoPlay
-              muted
-              playsInline
-              loop={false}
-            />
+          {/* Un solo video: cover en desktop, contain en mobile */}
+          <video
+            src={`${basePath}/videoReveal.mp4`}
+            autoPlay
+            muted
+            playsInline
+            loop={false}
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              display: "block",
+              objectFit: "cover",
+              objectPosition: "center center",
+            }}
+          />
           </motion.div>
         </motion.div>
       </div>

@@ -6,7 +6,7 @@ export default function Hero() {
     <section
       id="inicio"
       className="relative overflow-hidden"
-      style={{ height: "100dvh", minHeight: "100dvh" }}
+      style={{ height: "100dvh", minHeight: "560px" }}
     >
       {/* Video del salón — reveal con clipPath + scale, se reproduce una sola vez */}
       <HeroImageClient />

@@ -94,7 +94,7 @@ export default function EditorialSection() {
 
         {/* Imagen 2 — misma proporción exacta */}
         <ImageReveal
-          src={`${basePath}/contenido2.jpg`}
+          src={`${basePath}/contenido2.webp`}
           alt="Decoración floral y ambiente del salón"
           delay={0.2}
           sizes="(max-width: 640px) 100vw, 50vw"
@@ -104,18 +104,27 @@ export default function EditorialSection() {
 
       {/* ── Video full-width — se reproduce una sola vez ───────────── */}
       <FadeUp delay={0.2}>
-        <video
-          src={`${basePath}/videoContenido3.mp4`}
-          autoPlay
-          muted
-          playsInline
-          loop={false}
-          style={{
-            display: "block",    /* elimina el espacio inferior del inline */
-            width: "100%",
-            objectFit: "cover",
-          }}
-        />
+        <div
+          className="relative w-full overflow-hidden"
+          style={{ height: "clamp(400px, 60vh, 700px)" }}
+        >
+          <video
+            src={`${basePath}/videoContenido3.mp4`}
+            autoPlay
+            muted
+            playsInline
+            loop={false}
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              display: "block",
+              objectFit: "cover",
+              objectPosition: "center 20%",
+            }}
+          />
+        </div>
       </FadeUp>
     </section>
   );

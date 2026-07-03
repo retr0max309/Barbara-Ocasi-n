@@ -10,7 +10,7 @@ const basePath =
 const FOTOS = [
   { src: `${basePath}/eventosImages/eventosBoda.jpg`,         alt: "Boda en Barbara Ocasión"            },
   { src: `${basePath}/eventosImages/eventos15años.jpg`,       alt: "15 Años en Barbara Ocasión"         },
-  { src: `${basePath}/eventosImages/eventosAdultos.jpg`,      alt: "Cumpleaños adultos en el salón"     },
+  { src: `${basePath}/eventosImages/eventosAdultos.webp`,      alt: "Cumpleaños adultos en el salón"     },
   { src: `${basePath}/eventosImages/eventosInfantil.jpg`,     alt: "Fiesta infantil Barbara Ocasión"    },
   { src: `${basePath}/eventosImages/eventosAniversarios.jpg`, alt: "Aniversario en Barbara Ocasión"     },
   { src: `${basePath}/eventosImages/imgEventos.jpg`,          alt: "Evento especial en Barbara Ocasión" },
@@ -92,7 +92,7 @@ export default function EventosSection() {
           className="grid grid-cols-1 md:grid-cols-[3fr_2fr]"
           style={{ gap: "clamp(0.5rem, 1vw, 1rem)", marginBottom: "clamp(0.5rem, 1vw, 1rem)" }}
         >
-          {/* Grande — ImageReveal con aspectRatio 3/4 */}
+          {/* Grande — proporción portrait */}
           <ImageReveal
             src={FOTOS[0].src}
             alt={FOTOS[0].alt}
@@ -100,7 +100,7 @@ export default function EventosSection() {
             style={{ aspectRatio: "3/4" }}
           />
 
-          {/* Columna derecha: 2 imágenes apiladas */}
+          {/* Columna derecha: 2 imágenes apiladas cuadradas (1:1) */}
           <div
             className="grid grid-cols-1"
             style={{ gap: "clamp(0.5rem, 1vw, 1rem)" }}
@@ -110,14 +110,14 @@ export default function EventosSection() {
               alt={FOTOS[1].alt}
               delay={0.07}
               sizes="(max-width: 768px) 100vw, 40vw"
-              style={{ aspectRatio: "4/3" }}
+              style={{ aspectRatio: "1/1" }}
             />
             <ImageReveal
               src={FOTOS[2].src}
               alt={FOTOS[2].alt}
               delay={0.14}
               sizes="(max-width: 768px) 100vw, 40vw"
-              style={{ aspectRatio: "4/3" }}
+              style={{ aspectRatio: "1/1" }}
             />
           </div>
         </div>

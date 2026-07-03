@@ -37,10 +37,10 @@ export function HeroImageClient() {
   };
   const clipTransition = reduce
     ? { duration: 0 }
-    : { duration: 1.4, ease: EASE_GUCCI };
+    : { duration: 2.2, ease: EASE_GUCCI };
   const scaleTransition = reduce
     ? { duration: 0 }
-    : { duration: 1.8, ease: EASE_GUCCI };
+    : { duration: 2.8, ease: EASE_GUCCI };
 
   return (
     // El motion.div externo aplica el parallax de scroll
@@ -72,6 +72,7 @@ export function HeroImageClient() {
             autoPlay
             muted
             playsInline
+            preload="auto"
             loop={false}
             style={{
               position: "absolute",

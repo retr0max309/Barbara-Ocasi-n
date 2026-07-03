@@ -31,7 +31,7 @@ export function ImageReveal({
 }: ImageRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   // once:true → la animación se dispara una sola vez al entrar al viewport
-  const inView = useInView(ref, { once: true, amount: 0.08 });
+  const inView = useInView(ref, { once: true, amount: 0.35 });
 
   return (
     /* Contenedor externo: overflow:hidden contiene el zoom sin desbordarse */
@@ -46,7 +46,7 @@ export function ImageReveal({
         initial={{ scale: 1.12 }}
         animate={inView ? { scale: 1 } : { scale: 1.12 }}
         transition={{
-          duration: 1.8,
+          duration: 2.6,
           delay,
           ease: EASE_GUCCI,
         }}

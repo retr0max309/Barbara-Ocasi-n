@@ -84,7 +84,7 @@ export default function EditorialSection() {
       <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: "2px" }}>
         {/* Imagen 1 */}
         <ImageReveal
-          src={`${basePath}/contenido1.jpg`}
+          src={`${basePath}/contenido1.webp`}
           alt="Salón Barbara Ocasión preparado para una celebración"
           delay={0.2}
           priority
@@ -101,31 +101,6 @@ export default function EditorialSection() {
           style={{ aspectRatio: "4 / 5" }}
         />
       </div>
-
-      {/* ── Video full-width — se reproduce una sola vez ───────────── */}
-      <FadeUp delay={0.2}>
-        <div
-          className="relative w-full overflow-hidden"
-          style={{ height: "clamp(400px, 60vh, 700px)" }}
-        >
-          <video
-            src={`${basePath}/videoContenido3.mp4`}
-            autoPlay
-            muted
-            playsInline
-            loop={false}
-            style={{
-              position: "absolute",
-              inset: 0,
-              width: "100%",
-              height: "100%",
-              display: "block",
-              objectFit: "cover",
-              objectPosition: "center 20%",
-            }}
-          />
-        </div>
-      </FadeUp>
     </section>
   );
 }

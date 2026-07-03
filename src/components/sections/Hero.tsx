@@ -1,5 +1,6 @@
 import { HeroImageClient } from "./HeroImageClient";
 import { FillButton } from "@/components/motion/FillButton";
+import { SITE } from "@/data/content";
 
 export default function Hero() {
   return (
@@ -46,7 +47,7 @@ export default function Hero() {
 
         {/* Botón rectangular sólido — estilo Gucci (ancho, cuadrado, llamativo) */}
         <FillButton
-          href="/inversion"
+          href={SITE.whatsappMsg}
           variant="light"
           solid
           className="min-w-[120px] md:min-w-[160px] py-[18px] tracking-[0.3em] text-[0.7rem]"

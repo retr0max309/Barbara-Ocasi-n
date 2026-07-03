@@ -8,12 +8,11 @@ const basePath =
 
 /* ── Fotos del salón — todas las imágenes disponibles ── */
 const FOTOS = [
-  { src: `${basePath}/eventosImages/eventosBoda.jpg`,         alt: "Boda en Barbara Ocasión"            },
-  { src: `${basePath}/eventosImages/eventos15años.jpg`,       alt: "15 Años en Barbara Ocasión"         },
-  { src: `${basePath}/eventosImages/eventosAdultos.webp`,      alt: "Cumpleaños adultos en el salón"     },
-  { src: `${basePath}/eventosImages/eventosInfantil.jpg`,     alt: "Fiesta infantil Barbara Ocasión"    },
-  { src: `${basePath}/eventosImages/eventosAniversarios.jpg`, alt: "Aniversario en Barbara Ocasión"     },
-  { src: `${basePath}/eventosImages/imgEventos.jpg`,          alt: "Evento especial en Barbara Ocasión" },
+  { src: `${basePath}/eventosImagesVideo/IMG_6230.webp`,       alt: "Salón en Barbara Ocasión"            },
+  { src: `${basePath}/eventosImagesVideo/imagen-2-bo.webp`,    alt: "Decoración en Barbara Ocasión"       },
+  { src: `${basePath}/eventosImagesVideo/eventosAdultos.webp`, alt: "Cumpleaños adultos en el salón"      },
+  { src: `${basePath}/eventosImagesVideo/imagen-3-bo.webp`,    alt: "Mesa decorada Barbara Ocasión"       },
+  { src: `${basePath}/eventosImagesVideo/imagen-4-bo.webp`,    alt: "Detalle de evento"                   },
 ] as const;
 
 export default function EventosSection() {
@@ -82,61 +81,82 @@ export default function EventosSection() {
         </FadeUp>
       </div>
 
-      {/* ── Galería de fotos editorial ───────────────────────── */}
+      {/* ── Galería de fotos editorial con Video ───────────────────────── */}
       <div
         className="container"
         style={{ paddingBottom: "clamp(6rem, 12vw, 10rem)" }}
       >
-        {/* Fila 1: imagen grande izquierda + 2 apiladas derecha */}
-        <div
-          className="grid grid-cols-1 md:grid-cols-[3fr_2fr]"
-          style={{ gap: "clamp(0.5rem, 1vw, 1rem)", marginBottom: "clamp(0.5rem, 1vw, 1rem)" }}
-        >
-          {/* Grande — proporción portrait */}
-          <ImageReveal
-            src={FOTOS[0].src}
-            alt={FOTOS[0].alt}
-            sizes="(max-width: 768px) 100vw, 60vw"
-            style={{ aspectRatio: "3/4" }}
-          />
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 md:gap-8">
+          
+          {/* Columna Izquierda: Video nuevo */}
+          <FadeUp>
+            <div className="w-full h-full relative overflow-hidden" style={{ minHeight: "500px", borderRadius: "8px" }}>
+              <video
+                src={`${basePath}/eventosImagesVideo/IMG_6649.mp4`}
+                autoPlay
+                muted
+                playsInline
+                preload="auto"
+                loop
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+          </FadeUp>
 
-          {/* Columna derecha: 2 imágenes apiladas cuadradas (1:1) */}
-          <div
-            className="grid grid-cols-1"
-            style={{ gap: "clamp(0.5rem, 1vw, 1rem)" }}
-          >
-            <ImageReveal
-              src={FOTOS[1].src}
-              alt={FOTOS[1].alt}
-              delay={0.07}
-              sizes="(max-width: 768px) 100vw, 40vw"
-              style={{ aspectRatio: "1/1" }}
-            />
-            <ImageReveal
-              src={FOTOS[2].src}
-              alt={FOTOS[2].alt}
-              delay={0.14}
-              sizes="(max-width: 768px) 100vw, 40vw"
-              style={{ aspectRatio: "1/1" }}
-            />
+          {/* Columna Derecha: Galería de Imágenes */}
+          <div className="flex flex-col gap-4">
+            {/* Fila 1: imagen grande izquierda + 2 apiladas derecha */}
+            <div
+              className="grid grid-cols-1 md:grid-cols-[3fr_2fr]"
+              style={{ gap: "clamp(0.5rem, 1vw, 1rem)" }}
+            >
+              {/* Grande — proporción portrait */}
+              <ImageReveal
+                src={FOTOS[0].src}
+                alt={FOTOS[0].alt}
+                sizes="(max-width: 768px) 100vw, 60vw"
+                style={{ aspectRatio: "3/4" }}
+              />
+
+              {/* Columna derecha: 2 imágenes apiladas cuadradas (1:1) */}
+              <div
+                className="grid grid-cols-1"
+                style={{ gap: "clamp(0.5rem, 1vw, 1rem)" }}
+              >
+                <ImageReveal
+                  src={FOTOS[1].src}
+                  alt={FOTOS[1].alt}
+                  delay={0.07}
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  style={{ aspectRatio: "1/1" }}
+                />
+                <ImageReveal
+                  src={FOTOS[2].src}
+                  alt={FOTOS[2].alt}
+                  delay={0.14}
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  style={{ aspectRatio: "1/1" }}
+                />
+              </div>
+            </div>
+
+            {/* Fila 2: 2 columnas iguales */}
+            <div
+              className="grid grid-cols-1 sm:grid-cols-2"
+              style={{ gap: "clamp(0.5rem, 1vw, 1rem)" }}
+            >
+              {FOTOS.slice(3).map((foto, i) => (
+                <ImageReveal
+                  key={foto.src}
+                  src={foto.src}
+                  alt={foto.alt}
+                  delay={i * 0.08}
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  style={{ aspectRatio: "4/5" }}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-
-        {/* Fila 2: 3 columnas iguales */}
-        <div
-          className="grid grid-cols-1 sm:grid-cols-3"
-          style={{ gap: "clamp(0.5rem, 1vw, 1rem)" }}
-        >
-          {FOTOS.slice(3).map((foto, i) => (
-            <ImageReveal
-              key={foto.src}
-              src={foto.src}
-              alt={foto.alt}
-              delay={i * 0.08}
-              sizes="(max-width: 640px) 100vw, 33vw"
-              style={{ aspectRatio: "4/5" }}
-            />
-          ))}
         </div>
       </div>
 

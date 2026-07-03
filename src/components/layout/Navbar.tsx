@@ -96,7 +96,7 @@ export default function Navbar() {
             aria-label="Barbara Ocasión — Inicio"
           >
             <Image
-              src={`${basePath}/logoEsquina.png`}
+              src={`${basePath}/heroContent/logoEsquina.png`}
               alt="Barbara Ocasión"
               width={200}
               height={60}

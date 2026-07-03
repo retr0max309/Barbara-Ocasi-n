@@ -68,7 +68,7 @@ export function HeroImageClient() {
           >
           {/* Un solo video: cover en desktop, contain en mobile */}
           <video
-            src={`${basePath}/videoReveal.mp4`}
+            src={`${basePath}/heroContent/videoReveal.mp4`}
             autoPlay
             muted
             playsInline

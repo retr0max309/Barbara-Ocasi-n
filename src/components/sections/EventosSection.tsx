@@ -8,11 +8,11 @@ const basePath =
 
 /* ── Fotos del salón — todas las imágenes disponibles ── */
 const FOTOS = [
-  { src: `${basePath}/eventosImagesVideo/IMG_6230.webp`,       alt: "Salón en Barbara Ocasión"            },
-  { src: `${basePath}/eventosImagesVideo/imagen-2-bo.webp`,    alt: "Decoración en Barbara Ocasión"       },
-  { src: `${basePath}/eventosImagesVideo/eventosAdultos.webp`, alt: "Cumpleaños adultos en el salón"      },
-  { src: `${basePath}/eventosImagesVideo/imagen-3-bo.webp`,    alt: "Mesa decorada Barbara Ocasión"       },
-  { src: `${basePath}/eventosImagesVideo/imagen-4-bo.webp`,    alt: "Detalle de evento"                   },
+  { src: `${basePath}/eventosImagesVideo/IMG_6230-opt.webp`,       alt: "Salón en Barbara Ocasión"            },
+  { src: `${basePath}/eventosImagesVideo/imagen-2-bo-opt.webp`,    alt: "Decoración en Barbara Ocasión"       },
+  { src: `${basePath}/eventosImagesVideo/eventosAdultos-opt.webp`, alt: "Cumpleaños adultos en el salón"      },
+  { src: `${basePath}/eventosImagesVideo/imagen-3-bo-opt.webp`,    alt: "Mesa decorada Barbara Ocasión"       },
+  { src: `${basePath}/eventosImagesVideo/imagen-4-bo-opt.webp`,    alt: "Detalle de evento"                   },
 ] as const;
 
 export default function EventosSection() {
@@ -116,6 +116,7 @@ export default function EventosSection() {
                 alt={FOTOS[0].alt}
                 sizes="(max-width: 768px) 100vw, 60vw"
                 style={{ aspectRatio: "3/4" }}
+                priority={true}
               />
 
               {/* Columna derecha: 2 imágenes apiladas cuadradas (1:1) */}

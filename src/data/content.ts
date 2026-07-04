@@ -13,7 +13,7 @@ export const SITE = {
   direccion: "Padre Sanauja Nº2, Sucre, Bolivia",
   mapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3798.1234567890!2d-65.2594!3d-19.0477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e9c7b6a5d3a1%3A0x0!2sBarbara%20Ocasi%C3%B3n!5e0!3m2!1ses!2sbo!4v1700000000000!5m2!1ses!2sbo",
   mapsUrl: "https://maps.app.goo.gl/da5SsehxBaWQxiuP6",
-  capacidad: 200,
+  capacidad: 180,
   instagram: "https://www.instagram.com/barbaraocasion.bo?igsh=d2hvNWVrcmxyenZw",
   facebook:  "https://www.facebook.com/share/1BKsV9eVPU/",
 };

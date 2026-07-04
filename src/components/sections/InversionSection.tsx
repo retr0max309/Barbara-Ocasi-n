@@ -283,7 +283,7 @@ export default function InversionSection() {
               opacity: 0.75,
             }}
           >
-            Todos los paquetes incluyen salón principal hasta 200 personas,
+            Todos los paquetes incluyen salón principal hasta 180 personas,
             estacionamiento y seguridad. Los precios varían según la fecha,
             temporada y requerimientos específicos. Contáctanos para recibir
             una cotización personalizada sin costo.
@@ -357,7 +357,7 @@ export default function InversionSection() {
             },
             {
               num: "03",
-              titulo: "Capacidad para 200",
+              titulo: "Capacidad para 180",
               texto:
                 "Salón principal con iluminación profesional, jardín exterior y área lounge para una experiencia sin límites.",
             },

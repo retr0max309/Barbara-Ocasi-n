@@ -21,7 +21,7 @@ const jost = Jost({
 export const metadata: Metadata = {
   title: "Barbara Ocasión — Salón de Eventos en Sucre",
   description:
-    "Salón de eventos de lujo en Sucre, Bolivia. Bodas, 15 años, eventos corporativos y más. Capacidad para 200 personas. Salón · Jardín · Lounge.",
+    "Salón de eventos de lujo en Sucre, Bolivia. Bodas, 15 años, eventos corporativos y más. Capacidad para 180 personas. Salón · Jardín · Lounge.",
   openGraph: {
     title: "Barbara Ocasión — Salón de Eventos en Sucre",
     description:
@@ -36,7 +36,7 @@ const jsonLd = {
   "@type": "EventVenue",
   name: "Barbara Ocasión",
   description:
-    "Salón de eventos de lujo en Sucre, Bolivia. Capacidad para 200 personas.",
+    "Salón de eventos de lujo en Sucre, Bolivia. Capacidad para 180 personas.",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Padre Sanauja Nº2",
@@ -44,7 +44,7 @@ const jsonLd = {
     addressCountry: "BO",
   },
   telephone: "+59163026011",
-  maximumAttendeeCapacity: 200,
+  maximumAttendeeCapacity: 180,
 };
 
 export default function RootLayout({

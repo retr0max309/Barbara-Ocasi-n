@@ -7,7 +7,7 @@ import { TextReveal } from "@/components/motion/TextReveal";
 export const metadata: Metadata = {
   title: "Eventos — Barbara Ocasión | Salón en Sucre, Bolivia",
   description:
-    "Bodas, 15 años, cumpleaños, aniversarios y más. Barbara Ocasión, el salón de eventos de lujo en Sucre con capacidad para 200 personas.",
+    "Bodas, 15 años, cumpleaños, aniversarios y más. Barbara Ocasión, el salón de eventos de lujo en Sucre con capacidad para 180 personas.",
 };
 
 export default function EventosPage() {

@@ -172,7 +172,7 @@ export const FAQS = [
   {
     pregunta: "¿Cuál es la capacidad máxima del salón?",
     respuesta:
-      "Barbara Ocasión tiene capacidad para hasta 200 personas en salón principal. Adicionalmente contamos con un jardín con área de lounge para que tus invitados puedan disfrutar al aire libre.",
+      "Barbara Ocasión tiene capacidad para hasta 180 personas en salón principal. Adicionalmente contamos con un jardín con área de lounge para que tus invitados puedan disfrutar al aire libre.",
   },
   {
     pregunta: "¿El precio incluye decoración y mobiliario?",
@@ -199,7 +199,7 @@ export const PAQUETES = [
     descripcion: "Todo lo necesario para una celebración elegante y sin preocupaciones.",
     destacado: false,
     caracteristicas: [
-      "Salón principal hasta 200 invitados",
+      "Salón principal hasta 180 invitados",
       "Mobiliario completo (mesas, sillas, manteles)",
       "Iluminación estándar del salón",
       "Estacionamiento privado",
@@ -211,19 +211,18 @@ export const PAQUETES = [
   {
     id: "lujo",
     coleccion: "Colección II",
-    nombre: "Lujo",
+    nombre: "Plus",
     descripcion: "La experiencia completa para eventos que merecen ser recordados para siempre.",
     destacado: true,
     caracteristicas: [
       "Todo lo del paquete Esencial",
-      "Decoración floral y temática incluida",
-      "Coctelería artesanal con bartender",
+      "Catering de comida",
+      "Bebidas con alcohol",
       "Personal de servicio élite",
-      "Sonido profesional y escenario",
       "Coordinador de eventos dedicado",
       "Jardín + área lounge exterior",
     ],
-    whatsapp: "https://wa.me/59163026011?text=Hola%2C%20me%20interesa%20el%20paquete%20Lujo%20de%20Barbara%20Ocasi%C3%B3n.",
+    whatsapp: "https://wa.me/59163026011?text=Hola%2C%20me%20interesa%20el%20paquete%20Plus%20de%20Barbara%20Ocasi%C3%B3n.",
   },
   {
     id: "barbara",
@@ -232,9 +231,11 @@ export const PAQUETES = [
     descripcion: "Una propuesta completamente personalizada. Diseñamos cada detalle según tu visión.",
     destacado: false,
     caracteristicas: [
-      "Todo lo del paquete Lujo",
+      "Todo lo del paquete Plus",
+      "Coctelería de autor y clásica",
+      "Diseño floral",
+      "Equipo de sonido",
       "Diseño y concepto personalizado",
-      "Floristería premium a medida",
       "Coordinación integral del evento",
       "Atención preferencial y exclusiva",
       "Asesoría previa ilimitada",

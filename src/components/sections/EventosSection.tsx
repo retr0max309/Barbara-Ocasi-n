@@ -9,8 +9,7 @@ const basePath =
 /* ── Fotos del salón — todas las imágenes disponibles ── */
 const FOTOS = [
   { src: `${basePath}/eventosImagesVideo/IMG_6230-opt.webp`,       alt: "Salón en Barbara Ocasión"            },
-  { src: `${basePath}/eventosImagesVideo/imagen-2-bo-opt.webp`,    alt: "Decoración en Barbara Ocasión"       },
-  { src: `${basePath}/eventosImagesVideo/eventosAdultos-opt.webp`, alt: "Cumpleaños adultos en el salón"      },
+  { src: `${basePath}/eventosImagesVideo/IMG_7801.webp`,           alt: "Decoración en Barbara Ocasión"       },
   { src: `${basePath}/eventosImagesVideo/imagen-3-bo-opt.webp`,    alt: "Mesa decorada Barbara Ocasión"       },
   { src: `${basePath}/eventosImagesVideo/imagen-4-bo-opt.webp`,    alt: "Detalle de evento"                   },
 ] as const;
@@ -119,26 +118,14 @@ export default function EventosSection() {
                 priority={true}
               />
 
-              {/* Columna derecha: 2 imágenes apiladas cuadradas (1:1) */}
-              <div
-                className="grid grid-cols-1"
-                style={{ gap: "clamp(0.5rem, 1vw, 1rem)" }}
-              >
-                <ImageReveal
-                  src={FOTOS[1].src}
-                  alt={FOTOS[1].alt}
-                  delay={0.07}
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                  style={{ aspectRatio: "1/1" }}
-                />
-                <ImageReveal
-                  src={FOTOS[2].src}
-                  alt={FOTOS[2].alt}
-                  delay={0.14}
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                  style={{ aspectRatio: "1/1" }}
-                />
-              </div>
+              {/* Columna derecha: 1 imagen que iguala el alto de la izquierda */}
+              <ImageReveal
+                src={FOTOS[1].src}
+                alt={FOTOS[1].alt}
+                delay={0.07}
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="w-full aspect-[4/5] md:aspect-auto md:h-full"
+              />
             </div>
 
             {/* Fila 2: 2 columnas iguales */}
@@ -146,7 +133,7 @@ export default function EventosSection() {
               className="grid grid-cols-1 sm:grid-cols-2"
               style={{ gap: "clamp(0.5rem, 1vw, 1rem)" }}
             >
-              {FOTOS.slice(3).map((foto, i) => (
+              {FOTOS.slice(2).map((foto, i) => (
                 <ImageReveal
                   key={foto.src}
                   src={foto.src}

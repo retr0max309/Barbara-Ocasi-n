@@ -2,7 +2,7 @@ import Image from "next/image";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { ImageReveal } from "@/components/motion/ImageReveal";
 
-const basePath = process.env.NODE_ENV === 'production' ? '/Barbara-Ocasi-n' : '';
+const basePath = '';
 import { FadeUp } from "@/components/motion/FadeUp";
 
 /*

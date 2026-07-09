@@ -3,8 +3,7 @@ import { ImageReveal } from "@/components/motion/ImageReveal";
 import { FadeUp } from "@/components/motion/FadeUp";
 import { TextReveal } from "@/components/motion/TextReveal";
 
-const basePath =
-  process.env.NODE_ENV === "production" ? "/Barbara-Ocasi-n" : "";
+const basePath = '';
 
 /* ── Fotos del salón — todas las imágenes disponibles ── */
 const FOTOS = [

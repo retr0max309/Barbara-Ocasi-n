@@ -2,7 +2,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView, useScroll, useTransform } from "motion/react";
 
-const basePath = process.env.NODE_ENV === 'production' ? '/Barbara-Ocasi-n' : '';
+const basePath = '';
 import { EASE_GUCCI } from "@/lib/motion";
 
 export function HeroImageClient() {

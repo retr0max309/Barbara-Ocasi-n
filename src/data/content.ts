@@ -1,6 +1,6 @@
 /* Datos y copy de Barbara Ocasión — fuente de verdad única */
 
-const basePath = process.env.NODE_ENV === 'production' ? '/Barbara-Ocasi-n' : '';
+const basePath = '';
 
 export const SITE = {
   nombre: "Barbara Ocasión",

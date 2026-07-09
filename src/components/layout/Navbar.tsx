@@ -6,8 +6,7 @@ import { motion, useScroll, useMotionValueEvent } from "motion/react";
 import { NAV_LINKS } from "@/data/content";
 import { EASE_GUCCI, EASE_INOUT, DUR_BASE, DUR_SLOW } from "@/lib/motion";
 
-const basePath =
-  process.env.NODE_ENV === "production" ? "/Barbara-Ocasi-n" : "";
+const basePath = '';
 
 /* ── Variantes del panel ─────────────────────────────────────────── */
 const listContainer = {

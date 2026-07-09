@@ -2,8 +2,7 @@ import { ImageReveal } from "@/components/motion/ImageReveal";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { FadeUp } from "@/components/motion/FadeUp";
 
-const basePath =
-  process.env.NODE_ENV === "production" ? "/Barbara-Ocasi-n" : "";
+const basePath = '';
 
 export default function ServiciosSection() {
   return (

@@ -1,86 +1,7 @@
 "use client";
-import { useRef } from "react";
-import { motion, useInView } from "motion/react";
-import Image from "next/image";
 import { FadeUp } from "@/components/motion/FadeUp";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { SITE } from "@/data/content";
-import { EASE_GUCCI } from "@/lib/motion";
-
-const basePath =
-  process.env.NODE_ENV === "production" ? "/Barbara-Ocasi-n" : "";
-
-/* ── Ken Burns para imagen con dimensiones intrínsecas ──────── */
-function FachadaReveal() {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.08 });
-
-  return (
-    <div
-      ref={ref}
-      style={{
-        position: "relative",
-        width: "100%",
-        alignSelf: "center",
-        overflow: "hidden",
-      }}
-    >
-      {/* Ken Burns: zoom-out al entrar al viewport */}
-      <motion.div
-        initial={{ scale: 1.12 }}
-        animate={inView ? { scale: 1 } : { scale: 1.12 }}
-        transition={{ duration: 1.8, ease: EASE_GUCCI }}
-        style={{ willChange: "transform" }}
-      >
-        <Image
-          src={`${basePath}/contactoImages/imagenFachada.jpg`}
-          alt="Fachada del salón Barbara Ocasión, Sucre"
-          width={1344}
-          height={1326}
-          priority
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          style={{ width: "100%", height: "auto", display: "block" }}
-        />
-      </motion.div>
-
-      {/* Overlay sutil en la base */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: "linear-gradient(to top, rgba(14,13,31,0.55) 0%, transparent 50%)",
-          pointerEvents: "none",
-        }}
-      />
-
-      {/* Eyebrow sobre la imagen */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: "clamp(2rem, 4vw, 3.5rem)",
-          left: "clamp(2rem, 4vw, 3.5rem)",
-          zIndex: 1,
-        }}
-      >
-        <FadeUp delay={0.5}>
-          <p
-            className="font-body uppercase tracking-[0.3em]"
-            style={{ fontSize: "0.72rem", color: "var(--color-gold)", marginBottom: "0.5rem" }}
-          >
-            Padre Sanauja Nº2, Sucre
-          </p>
-          <p
-            className="font-display"
-            style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", color: "#ffffff", lineHeight: 1.1 }}
-          >
-            Barbara Ocasión
-          </p>
-        </FadeUp>
-      </div>
-    </div>
-  );
-}
 
 /* ── Íconos inline ────────────────────────────────────────── */
 function IconPhone() {
@@ -117,8 +38,8 @@ function IconPin() {
   );
 }
 
-/* ── Filas de info ─────────────────────────────────────────── */
-function InfoRow({
+/* ── Columna de info ─────────────────────────────────────────── */
+function InfoCol({
   icon,
   label,
   children,
@@ -128,19 +49,17 @@ function InfoRow({
   children: React.ReactNode;
 }) {
   return (
-    <div style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
-      <span style={{ color: "var(--color-gold)", flexShrink: 0, marginTop: "2px" }}>
-        {icon}
-      </span>
-      <div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+        <span style={{ color: "var(--color-gold)", flexShrink: 0 }}>{icon}</span>
         <p
           className="font-body uppercase tracking-[0.22em]"
-          style={{ fontSize: "0.65rem", color: "var(--color-gold)", marginBottom: "0.35rem", fontWeight: 600 }}
+          style={{ fontSize: "0.62rem", color: "var(--color-gold)", fontWeight: 600 }}
         >
           {label}
         </p>
-        {children}
       </div>
+      {children}
     </div>
   );
 }
@@ -149,51 +68,43 @@ export default function ContactoSection() {
   return (
     <section id="contacto" style={{ backgroundColor: "#ffffff" }}>
 
-      {/* ── Layout principal: 2 columnas en desktop ── */}
+      {/* ── Bloque superior: eyebrow + título a todo ancho ── */}
       <div
-        className="grid grid-cols-1 lg:grid-cols-2"
-        style={{ alignItems: "stretch" }}
+        className="container"
+        style={{
+          paddingTop: "clamp(5rem, 10vw, 8rem)",
+          paddingBottom: "clamp(3rem, 6vw, 5rem)",
+          borderBottom: "1px solid rgba(14,13,31,0.08)",
+        }}
       >
-
-        {/* ─── COLUMNA IZQUIERDA: imagen de fachada con Ken Burns ─── */}
-        <FachadaReveal />
-
-        {/* ─── COLUMNA DERECHA: información de contacto ─── */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            padding: "clamp(4rem, 8vw, 7rem) clamp(2rem, 6vw, 5rem)",
-          }}
-        >
-          {/* Eyebrow */}
-          <FadeUp>
-            <div
-              className="flex items-center gap-4"
-              style={{ marginBottom: "clamp(1.5rem, 3vw, 2.5rem)" }}
+        {/* Eyebrow */}
+        <FadeUp>
+          <div
+            className="flex items-center gap-4"
+            style={{ marginBottom: "clamp(1.5rem, 3vw, 2.5rem)" }}
+          >
+            <span
+              aria-hidden="true"
+              style={{ display: "block", width: "40px", height: "1px", backgroundColor: "var(--color-gold)", opacity: 0.6 }}
+            />
+            <span
+              className="font-body uppercase tracking-[0.36em]"
+              style={{ fontSize: "0.72rem", fontWeight: 600, color: "var(--color-gold)", paddingLeft: "0.36em" }}
             >
-              <span
-                aria-hidden="true"
-                style={{ display: "block", width: "40px", height: "1px", backgroundColor: "var(--color-gold)", opacity: 0.6 }}
-              />
-              <span
-                className="font-body uppercase tracking-[0.36em]"
-                style={{ fontSize: "0.75rem", fontWeight: 600, color: "var(--color-gold)", paddingLeft: "0.36em" }}
-              >
-                Contáctanos
-              </span>
-            </div>
-          </FadeUp>
+              Contáctanos
+            </span>
+          </div>
+        </FadeUp>
 
-          {/* Título principal */}
+        {/* Título + descripción en dos columnas */}
+        <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: "clamp(2rem, 4vw, 4rem)", alignItems: "flex-end" }}>
+          {/* Título grande */}
           <h2
             className="font-display"
             style={{
-              fontSize: "clamp(2.8rem, 5vw, 4.5rem)",
-              lineHeight: 1.02,
+              fontSize: "clamp(3rem, 6vw, 5.5rem)",
+              lineHeight: 1.0,
               color: "var(--color-ink)",
-              marginBottom: "clamp(1.25rem, 2.5vw, 2rem)",
             }}
           >
             <TextReveal
@@ -202,118 +113,124 @@ export default function ContactoSection() {
             />
           </h2>
 
-          {/* Texto secundario */}
+          {/* Descripción + CTA alineados a la derecha-abajo */}
           <FadeUp delay={0.2}>
-            <p
-              className="font-body"
-              style={{
-                fontSize: "clamp(0.9rem, 1.1vw, 1.05rem)",
-                lineHeight: 1.85,
-                color: "var(--color-faint)",
-                maxWidth: "42ch",
-                marginBottom: "clamp(2.5rem, 5vw, 4rem)",
-              }}
-            >
-              Estamos listos para hacer realidad tu celebración. Visítanos,
-              agenda una cita o déjanos tus datos para diseñar una propuesta
-              a tu medida.
-            </p>
-          </FadeUp>
-
-          {/* ── Canales de atención ── */}
-          <FadeUp delay={0.3}>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "clamp(1.5rem, 3vw, 2rem)",
-                marginBottom: "clamp(2.5rem, 5vw, 4rem)",
-              }}
-            >
-              <InfoRow icon={<IconPhone />} label="Teléfono principal">
-                <a
-                  href="tel:+59163026011"
-                  className="font-display"
-                  style={{ fontSize: "clamp(1.6rem, 2.5vw, 2rem)", color: "var(--color-ink)", letterSpacing: "-0.01em", display: "block" }}
-                >
-                  63026011
-                </a>
-              </InfoRow>
-
-              <InfoRow icon={<IconWhatsApp />} label="WhatsApp">
-                <a
-                  href={SITE.whatsappContacto}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-body uppercase tracking-[0.22em] inline-flex items-center gap-2"
-                  style={{
-                    fontSize: "0.75rem",
-                    fontWeight: 600,
-                    color: "var(--color-ink)",
-                    borderBottom: "1px solid var(--color-gold)",
-                    paddingBottom: "3px",
-                    transition: "opacity 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.6")}
-                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-                >
-                  Enviar mensaje
-                </a>
-              </InfoRow>
-
-              <InfoRow icon={<IconClock />} label="Horario de atención">
-                <p className="font-body" style={{ fontSize: "clamp(0.9rem, 1vw, 1rem)", color: "var(--color-ink)", lineHeight: 1.6 }}>
-                  Lunes a Sábado<br />
-                  <span style={{ color: "var(--color-faint)" }}>9:00 – 20:00</span>
-                </p>
-              </InfoRow>
-
-              <InfoRow icon={<IconPin />} label="Ubicación">
-                <a
-                  href={SITE.mapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-body"
-                  style={{ fontSize: "clamp(0.9rem, 1vw, 1rem)", color: "var(--color-ink)", lineHeight: 1.6, textDecoration: "none", transition: "opacity 0.3s" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.6")}
-                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-                >
-                  Padre Sanauja Nº2<br />
-                  <span style={{ color: "var(--color-faint)" }}>Sucre, Bolivia</span>
-                </a>
-              </InfoRow>
+            <div style={{ display: "flex", flexDirection: "column", gap: "clamp(1.5rem, 3vw, 2.5rem)" }}>
+              <p
+                className="font-body"
+                style={{
+                  fontSize: "clamp(0.9rem, 1.1vw, 1.05rem)",
+                  lineHeight: 1.85,
+                  color: "var(--color-faint)",
+                  maxWidth: "48ch",
+                }}
+              >
+                Estamos listos para hacer realidad tu celebración. Visítanos,
+                agenda una cita o déjanos tus datos para diseñar una propuesta
+                a tu medida.
+              </p>
+              <a
+                href={SITE.whatsappContacto}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body uppercase inline-block"
+                style={{
+                  backgroundColor: "var(--color-ink)",
+                  color: "#ffffff",
+                  padding: "1.1rem 2.75rem",
+                  fontSize: "0.72rem",
+                  letterSpacing: "0.28em",
+                  fontWeight: 600,
+                  transition: "background-color 0.4s ease",
+                  alignSelf: "flex-start",
+                }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "var(--color-bg)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "var(--color-ink)"; }}
+              >
+                Agendar una cita
+              </a>
             </div>
-          </FadeUp>
-
-          {/* ── CTA principal ── */}
-          <FadeUp delay={0.4}>
-            <a
-              href={SITE.whatsappContacto}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-body uppercase inline-block"
-              style={{
-                backgroundColor: "var(--color-ink)",
-                color: "#ffffff",
-                padding: "1.1rem 2.75rem",
-                fontSize: "0.72rem",
-                letterSpacing: "0.28em",
-                fontWeight: 600,
-                transition: "background-color 0.4s ease",
-                alignSelf: "flex-start",
-              }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "var(--color-bg)"; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "var(--color-ink)"; }}
-            >
-              Agendar una cita
-            </a>
           </FadeUp>
         </div>
       </div>
 
+      {/* ── Cuadrícula de canales de atención ─────────────────── */}
+      <div
+        className="container"
+        style={{
+          paddingTop: "clamp(3rem, 6vw, 5rem)",
+          paddingBottom: "clamp(3rem, 6vw, 5rem)",
+          borderBottom: "1px solid rgba(14,13,31,0.08)",
+        }}
+      >
+        <FadeUp delay={0.1}>
+          <div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+            style={{ gap: "clamp(2rem, 4vw, 3rem)" }}
+          >
+            {/* Teléfono */}
+            <InfoCol icon={<IconPhone />} label="Teléfono principal">
+              <a
+                href="tel:+59163026011"
+                className="font-display"
+                style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "var(--color-ink)", letterSpacing: "-0.01em", display: "block" }}
+              >
+                63026011
+              </a>
+            </InfoCol>
+
+            {/* WhatsApp */}
+            <InfoCol icon={<IconWhatsApp />} label="WhatsApp">
+              <a
+                href={SITE.whatsappContacto}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body uppercase tracking-[0.22em] inline-flex items-center gap-2"
+                style={{
+                  fontSize: "0.75rem",
+                  fontWeight: 600,
+                  color: "var(--color-ink)",
+                  borderBottom: "1px solid var(--color-gold)",
+                  paddingBottom: "3px",
+                  transition: "opacity 0.3s ease",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.6")}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+              >
+                Enviar mensaje
+              </a>
+            </InfoCol>
+
+            {/* Horario */}
+            <InfoCol icon={<IconClock />} label="Horario de atención">
+              <p className="font-body" style={{ fontSize: "clamp(0.9rem, 1vw, 1rem)", color: "var(--color-ink)", lineHeight: 1.6 }}>
+                Lunes a Sábado<br />
+                <span style={{ color: "var(--color-faint)" }}>9:00 – 20:00</span>
+              </p>
+            </InfoCol>
+
+            {/* Ubicación */}
+            <InfoCol icon={<IconPin />} label="Ubicación">
+              <a
+                href={SITE.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body"
+                style={{ fontSize: "clamp(0.9rem, 1vw, 1rem)", color: "var(--color-ink)", lineHeight: 1.6, textDecoration: "none", transition: "opacity 0.3s" }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.6")}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+              >
+                Padre Sanauja Nº2<br />
+                <span style={{ color: "var(--color-faint)" }}>Sucre, Bolivia</span>
+              </a>
+            </InfoCol>
+          </div>
+        </FadeUp>
+      </div>
+
       {/* ── Mapa de Google Maps ───────────────────────────────── */}
       <FadeUp>
-        <div style={{ width: "100%", borderTop: "1px solid rgba(14,13,31,0.08)" }}>
+        <div style={{ width: "100%" }}>
           {/* Encabezado del mapa */}
           <div
             className="container flex items-center gap-4"

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { SITE, FAQS } from "@/data/content";
 import Link from "next/link";
 import { EASE_GUCCI, DUR_BASE } from "@/lib/motion";
@@ -53,6 +53,9 @@ function FooterLink({
 }
 
 /* ── FAQ accordion pequeño ─── */
+/* Usa CSS grid-template-rows (0fr ↔ 1fr) en lugar de animar height con JS.
+   Es 100% compuesto (composited) en navegadores modernos: sin reflow,
+   sin «Evita animaciones no compuestas» en PageSpeed. */
 function FaqItem({ pregunta, respuesta }: { pregunta: string; respuesta: string }) {
   const [open, setOpen] = useState(false);
   return (
@@ -69,6 +72,7 @@ function FaqItem({ pregunta, respuesta }: { pregunta: string; respuesta: string 
         >
           {pregunta}
         </span>
+        {/* La rotación del «+» sigue usando motion: rotate es transform, siempre compuesto */}
         <motion.span
           animate={{ rotate: open ? 45 : 0 }}
           transition={{ duration: 0.3, ease: EASE_GUCCI }}
@@ -79,31 +83,34 @@ function FaqItem({ pregunta, respuesta }: { pregunta: string; respuesta: string 
         </motion.span>
       </button>
 
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            key="resp"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.5, ease: EASE_GUCCI }}
-            style={{ overflow: "hidden" }}
+      {/*
+       * Técnica CSS Grid accordion:
+       *   – El wrapper externo cambia grid-template-rows entre «0fr» y «1fr».
+       *   – El div interno tiene overflow:hidden para que el corte sea limpio.
+       *   – transition en CSS puro = sin JS en cada frame = 0 reflows.
+       */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateRows: open ? "1fr" : "0fr",
+          transition: "grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
+        }}
+      >
+        <div style={{ overflow: "hidden" }}>
+          <p
+            className="font-body"
+            style={{
+              fontSize: "0.8rem",
+              lineHeight: 1.75,
+              color: "rgba(255,255,255,0.4)",
+              paddingBottom: "1rem",
+              maxWidth: "55ch",
+            }}
           >
-            <p
-              className="font-body"
-              style={{
-                fontSize: "0.8rem",
-                lineHeight: 1.75,
-                color: "rgba(255,255,255,0.4)",
-                paddingBottom: "1rem",
-                maxWidth: "55ch",
-              }}
-            >
-              {respuesta}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {respuesta}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

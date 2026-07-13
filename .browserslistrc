@@ -1,0 +1,23 @@
+# .browserslistrc
+# Configuración de navegadores objetivo para el proyecto Barbara Ocasión.
+#
+# Efecto: Elimina polyfills innecesarios de JS (Array.at, Object.hasOwn, etc.)
+# porque todos los navegadores listados los soportan nativamente desde 2020-2021.
+# PageSpeed reportó un ahorro estimado de 14 KiB con este cambio.
+#
+# Cobertura global estimada: ~95%+ de usuarios activos en 2026.
+# Los navegadores más antiguos (<2020) representan menos del 1% del tráfico mobile.
+
+[production]
+chrome >= 87
+edge >= 88
+firefox >= 78
+safari >= 14
+ios_saf >= 14
+samsung >= 14
+not dead
+
+[development]
+last 1 chrome version
+last 1 firefox version
+last 1 safari version

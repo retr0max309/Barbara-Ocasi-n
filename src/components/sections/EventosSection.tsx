@@ -94,7 +94,7 @@ export default function EventosSection() {
                 autoPlay
                 muted
                 playsInline
-                preload="auto"
+                preload="metadata"
                 loop
                 className="absolute inset-0 w-full h-full object-cover"
               />

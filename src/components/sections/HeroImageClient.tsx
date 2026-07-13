@@ -72,7 +72,7 @@ export function HeroImageClient() {
             autoPlay
             muted
             playsInline
-            preload="auto"
+            preload="metadata"
             loop={false}
             style={{
               position: "absolute",

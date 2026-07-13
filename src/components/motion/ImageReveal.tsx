@@ -50,7 +50,6 @@ export function ImageReveal({
           delay,
           ease: EASE_GUCCI,
         }}
-        style={{ willChange: "transform" }}
       >
         <Image
           src={src}

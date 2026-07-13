@@ -139,8 +139,10 @@ export default function Navbar() {
       <motion.div
         className="fixed inset-0 z-[55]"
         style={{
-          backgroundColor: "rgba(8, 7, 20, 0.6)",
-          backdropFilter: "blur(2px)",
+          backgroundColor: "rgba(8, 7, 20, 0.65)",
+          // backdropFilter eliminado: en móvil, el blur compite con las animaciones
+          // de ImageReveal y video, saturando el compositor GPU y causando parpadeo.
+          // El rgba ya provee suficiente contraste visual sin el costo del blur.
           pointerEvents: menuOpen ? "auto" : "none",
         }}
         initial={false}

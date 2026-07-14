@@ -19,6 +19,7 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.barbaraocasion.com"),
   title: "Barbara Ocasión — Salón de Eventos en Sucre",
   description:
     "Salón de eventos de lujo en Sucre, Bolivia. Bodas, 15 años, eventos corporativos y más. Capacidad para 180 personas. Salón · Jardín · Lounge.",
@@ -28,6 +29,11 @@ export const metadata: Metadata = {
       "Experiencias exclusivas para tus momentos más importantes. Bodas, 15 años, corporativos y más. Sucre, Bolivia.",
     type: "website",
     locale: "es_BO",
+    url: "https://www.barbaraocasion.com",
+    siteName: "Barbara Ocasión",
+  },
+  alternates: {
+    canonical: "https://www.barbaraocasion.com",
   },
 };
 
@@ -35,6 +41,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "EventVenue",
   name: "Barbara Ocasión",
+  url: "https://www.barbaraocasion.com",
   description:
     "Salón de eventos de lujo en Sucre, Bolivia. Capacidad para 180 personas.",
   address: {

@@ -6,7 +6,7 @@ import type { MetadataRoute } from "next";
  *
  * ⚠️ IMPORTANTE: Actualiza ambas URLs cuando se obtenga el dominio personalizado.
  */
-const BASE_URL = "https://barbara-ocasi-n.vercel.app";
+const BASE_URL = "https://www.barbaraocasion.com";
 
 export default function robots(): MetadataRoute.Robots {
   return {

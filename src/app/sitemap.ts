@@ -8,7 +8,7 @@ import type { MetadataRoute } from "next";
  * actualiza BASE_URL con la URL definitiva, ej:
  *   const BASE_URL = "https://barbaraocasion.com";
  */
-const BASE_URL = "https://barbara-ocasi-n.vercel.app";
+const BASE_URL = "https://www.barbaraocasion.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
